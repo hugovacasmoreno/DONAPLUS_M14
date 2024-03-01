@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DonaPlus</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(135, 229, 211);
+        }
+
+        /* Estilos para el contenedor principal */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Estilos para el contenedor del logo */
+        .logo-container {
+            margin-left: 20px;
+        }
+
+        /* Estilos para la barra de navegación */
+        .nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav a {
+            margin-right: 20px;
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #555;
+        }
+
+        /* Estilos para el formulario */
+        .form-container {
+            background-color: #ffffff; /* Color verde */
+            border-radius: 5px;
+            margin: 0 auto;
+            max-width: 300px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .form-container h2 {
+            margin-top: 0;
+            color: #676262; /* Color blanco para el texto */
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #5f4c4c; /* Color blanco para el texto */
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container input[type="password"] {
+            width: 100%;
+            padding: 0.5rem;
+            border: 5px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-bottom: 1rem;
+        }
+
+        .form-container input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            padding: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        .form-container p {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: #4f4a4a; /* Color blanco para el texto */
+        }
+
+        .form-container a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .form-container a:hover {
+            color: #555;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        footer ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        
+        footer ul li a {
+            color: #fbf8f8;
+            text-decoration: none;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        footer ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        
+        footer ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="nav">
+        <a href="#">Iniciar Sesión</a>
+        <a href="#">Servicio </a>
+        <a href="#">Contacto</a>
+    </div>
+    <div class="logo-container">
+        <img src="../templates/img/logodona.PNG" alt="Logo de DonaPlus">
+    </div>
+</div>
+
+<div class="form-container">
+
+    <input type="submit" value="Crear cuenta">
+
+
+    <form>
+        <label for="name">Tu Nombre</label>
+        <input type="text" id="name" name="name">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" name="password">
+        <input type="submit" value="Confirmar">
+    </form>
+    
+</div>
+<footer>
+    <div class="container">
+        <p>&copy; 2024 DonaPLus</p>
+        <ul>
+            <li><a href="#">Aviso legal</a></li>
+            <li><a href="#">Política de privacidad</a></li>
+        </ul>
+    </div>
+</footer>
+</body>
+</html>

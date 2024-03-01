@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - DonaPlus</title>
+  <style>
+     
+    body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: rgb(155, 223, 210);
+    }
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+    }
+
+    /* Estilos para el contenedor del logo */
+    .logo-container {
+        margin-left: 20px;
+    }
+
+    /* Estilos para la barra de navegación */
+    .nav {
+        display: flex;
+        align-items: center;
+    }
+
+    .nav a {
+        margin-right: 20px;
+        text-decoration: none;
+        color: #333;
+        transition: color 0.3s;
+    }
+
+    .nav a:hover {
+        color: #555;
+    }
+
+      main {
+        padding: 20px;
+      }
+      
+      .contacto {
+        border: 1px solid #ddd;
+        padding: 20px;
+      }
+      
+      .contacto h1 {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      
+      .contacto p {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      
+      .campo {
+        margin-bottom: 10px;
+      }
+      
+      .campo label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      
+      .campo input,
+      .campo textarea {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid #ddd;
+      }
+      
+      button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        border: 1px solid #ddd;
+        background-color: #000;
+        color: #fff;
+        cursor: pointer;
+      }
+      
+      button:hover {
+        background-color: #333;
+      }
+      
+      footer {
+        background-color: #000;
+        color: #fff;
+        padding: 10px 20px;
+        text-align: center;
+      }
+      
+     
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+        <div class="nav">
+            <a href="#">Iniciar Sesión</a>
+            <a href="#">Servicio </a>
+            <a href="#">Contacto</a>
+        </div>
+        <div class="logo-container">
+            <img src="../donaplus/img/logodona.PNG" alt="Logo de DonaPlus">
+        </div>
+    </div>
+  </header>
+  <main>
+    <section class="contacto">
+      <h1>Contacto</h1>
+      <p>Si tienes alguna duda o necesitas ayuda, no dudes en contactarnos.</p>
+      <form action="#">
+        <div class="campo">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" name="nombre">
+        </div>
+        <div class="campo">
+          <label for="correo">Correo electrónico:</label>
+          <input type="email" id="correo" name="correo">
+        </div>
+        <div class="campo">
+          <label for="mensaje">Mensaje:</label>
+          <textarea id="mensaje" name="mensaje"></textarea>
+        </div>
+        <button type="submit">Enviar mensaje</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>DonaPlus © 2023</p>
+  </footer>
+</body>
+</html>
