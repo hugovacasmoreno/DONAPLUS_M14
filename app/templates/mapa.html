@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicio | DonaPLus</title>
+    <style>   
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(155, 223, 210);
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Estilos para el contenedor del logo */
+        .logo-container {
+            margin-left: 20px;
+        }
+
+        /* Estilos para la barra de navegación */
+        .nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav a {
+            margin-right: 20px;
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #555;
+        }
+
+        .main {
+            padding: 20px 0;
+        }
+
+        .form-container input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            padding: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: #555;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .servicio h2 {
+            margin-top: 0;
+        }
+        
+        .servicio form {
+            margin-bottom: 20px;
+        }
+        
+        .servicio form input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        
+        .servicio form button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border: 1px solid #333;
+        }
+        
+        iframe {
+            width: 100%;
+            height: 600px; /* ajusta la altura del mapa */
+            border: 1px solid;
+        }        
+        
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px; /* añade un margen superior para separar del mapa */
+        }
+        
+        footer p {
+            margin-bottom: 10px;
+        }
+        
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        footer ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        
+        footer ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="#">Iniciar Sesión</a>
+            <a href="#">Servicio </a>
+            <a href="#">Contacto</a>
+        </div>
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='logodona.PNG') }}" alt="Logo de DonaPlus">
+        </div>
+    </div>
+
+    <div class="form-container">
+        <input type="submit" value="Servicio">
+    </div>
+
+    <main>
+        <section class="servicio">
+            <div class="container">
+                <h2>Elige un banco de alimentos</h2>
+                <form action="#">
+                    <input type="text" placeholder="Buscar por nombre o ubicación">
+                    <button type="submit">Buscar</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2995.0966006990993!2d2.145153!3d41.35025400000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a498a803e5dd41%3A0x7d6835b8e99a2284!2sBanc%20dels%20Aliments%20de%20Barcelona!5e0!3m2!1sca!2ses!4v1708958066988!5m2!1sca!2ses" width="600" height="800" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 DonaPLus</p>
+            <ul>
+                <li><a href="#">Aviso legal</a></li>
+                <li><a href="#">Política de privacidad</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

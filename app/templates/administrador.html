@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dona Plus</title>
+    <style>
+                
+                    /* Estilos generales */
+
+             body {
+                    font-family: sans-serif;
+                    margin: 0;
+                    padding: 0;
+                    background-color: rgb(155, 223, 210);
+            }
+            h1, h2 {
+                font-weight: bold;
+            }
+            .container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px;
+            }
+        
+            /* Estilos para el contenedor del logo */
+            .logo-container {
+                margin-left: 20px;
+            }
+        
+            /* Estilos para la barra de navegación */
+            .nav {
+                display: flex;
+                align-items: center;
+            }
+        
+            .nav a {
+                margin-right: 20px;
+                text-decoration: none;
+                color: #333;
+                transition: color 0.3s;
+            }
+        
+            .nav a:hover {
+                color: #555;
+            }
+        
+            /* Estilos para la tabla */
+
+            .tabla-donaciones {
+                background-color: #f2f2f2;
+                margin: 20px auto;
+                width: 80%;
+                border-collapse: collapse;
+            }
+
+            table th, table td {
+                border: 1px solid #ddd;
+                padding: 5px;
+                text-align: center;
+            }
+
+            table th {
+                background-color: #f2f2f2;
+            }
+
+            /* Estilos para las filas pares */
+
+            tr:nth-child(even) {
+                background-color: #fafafa;
+            }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="nav">
+                <a href="#">Iniciar Sesión</a>
+                <a href="#">Servicio </a>
+                <a href="#">Contacto</a>
+            </div>
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='logodona.PNG') }}" alt="Logo de DonaPlus">
+            </div>
+        </div>
+      </header>
+    <section class="tabla-donaciones">
+        <h2>Administrador</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Usuario</th>
+                    <th>Productos</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Javi</td>
+                    <td>Leche, Arroz, Pasta</td>
+                    <td>31/01/2024</td>
+                    <td>10:00</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Laura</td>
+                    <td>Caldo, Leche</td>
+                    <td>31/01/2024</td>
+                    <td>11:45</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Ana</td>
+                    <td>Queso, Pan</td>
+                    <td>31/01/2024</td>
+                    <td>9:00</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>
