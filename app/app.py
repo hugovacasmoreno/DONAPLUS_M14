@@ -8,28 +8,32 @@ def index():
     #return "Hola Mundo"
     return render_template('index.html')
 
-@app.route('/index.html')
-def index():
-    #return "Hola Mundo"
-    return render_template('index.html')
 
-@app.route('/pg_dona2.html')
+
+@app.route('/pg_dona2')
 def pg_dona2():
     #return la pagina de inciar session
     
     return render_template('pg_dona2.html')
 
-@app.route('/mapa.html')
+@app.route('/mapa')
 def mapa():
     #return la pagina de inciar session
     
     return render_template('mapa.html')
 
-@app.route('/contacto.html')
+@app.route('/contacto')
 def contacto():
     #return la pagina de inciar session
     
     return render_template('contacto.html')
+
+@app.route('/dia_hora_donacion')
+def dia_hora_donacion():
+    #return la pagina de inciar session
+    
+    return render_template('dia_hora_donacion.html')
+
 
 
 

@@ -123,10 +123,10 @@
 <body>
     <div class="container">
         <div class="nav">
-            <a href="index.html" >Inicio </a>
-            <a href="pg_dona2.html">Iniciar Sesión</a>
-            <a href="mapa.html">Servicio </a>
-            <a href="contacto.html">Contacto</a>
+            <a href="{{ url_for('index')}}">Inicio </a>
+            <a href="{{ url_for('pg_dona2')}}">Iniciar Sesión</a>
+            <a href="{{ url_for('mapa')}}">Servicio </a>
+            <a href="{{ url_for('contacto')}}">Contacto</a>
         </div>
         <div class="logo-container">
             <img src="{{ url_for('static', filename='logodona.PNG') }}" alt="Logo de DonaPlus">
@@ -150,6 +150,11 @@
     </main>
     
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2995.0966006990993!2d2.145153!3d41.35025400000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a498a803e5dd41%3A0x7d6835b8e99a2284!2sBanc%20dels%20Aliments%20de%20Barcelona!5e0!3m2!1sca!2ses!4v1708958066988!5m2!1sca!2ses" width="600" height="800" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    
+   
+    <a href="{{ url_for('dia_hora_donacion')}}"><button type="submit">Continuar</button></a>
+
+    
 
     <footer>
         <div class="container">
