@@ -19,6 +19,12 @@ def pg_dona2():
     
     return render_template('pg_dona2.html')
 
+@app.route('/crear_cuenta')
+def crear_cuenta():
+    #return la pagina de inciar session
+    
+    return render_template('crear_cuenta.html')
+
 @app.route('/mapa')
 def mapa():
     #return la pagina de inciar session
