@@ -1,4 +1,7 @@
 from flask import Flask, render_template, url_for
+import os
+template_dir = os.path.dirname(os.path.abspath(os.path.dirname(__file__)))
+template_dir = os.path.join(template_dir, 'app', 'templates')
 
 app=Flask(__name__)
 
