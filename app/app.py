@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request, redirect
 
 app=Flask(__name__)
 
@@ -39,7 +39,6 @@ def dia_hora_donacion():
     #return la pagina de inciar session
     
     return render_template('dia_hora_donacion.html')
-
 
 
 
