@@ -1,11 +1,25 @@
-
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template
 import os
+import database as db 
+
 template_dir = os.path.dirname(os.path.abspath(os.path.dirname(__file__)))
 template_dir = os.path.join(template_dir, 'app', 'templates')
 
+app=Flask(__name__, template_folder = template_dir) 
 
-app=Flask(__name__)
+@app.route('/')
+def home():
+    cursor = db.database.cursor()
+    cursor.execute("SELECT * FROM user")
+    myresult= cursor.fetchall()
+    #convertir los datos a diccionario
+    insertObject = []
+    columnNames = [column[0] for column in cursor.description]
+    for record in myresult:
+        insertObject.append(dict(zip(columnNames, record)))
+    cursor.close()
+    return render_template('index.html')
+
 
 
 @app.route('/')
@@ -54,6 +68,7 @@ def confirmar():
 
     # Por ahora, simplemente devolvemos una respuesta de confirmación al cliente
     return '¡Confirmación exitosa! Gracias por tu donación.'
+
 
 
 if __name__ == '__main__':
