@@ -46,6 +46,14 @@ def dia_hora_donacion():
     return render_template('dia_hora_donacion.html')
 
 
+@app.route('/confirmar', methods=['POST'])
+def confirmar():
+    # Aquí puedes realizar cualquier lógica de confirmación que necesites
+    # Por ejemplo, podrías guardar los datos del usuario en una base de datos
+    # y luego redirigir al usuario a una página de confirmación
+
+    # Por ahora, simplemente devolvemos una respuesta de confirmación al cliente
+    return '¡Confirmación exitosa! Gracias por tu donación.'
 
 
 if __name__ == '__main__':

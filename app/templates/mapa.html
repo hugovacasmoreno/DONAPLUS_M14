@@ -138,21 +138,116 @@
     </div>
 
     <main>
-        <section class="servicio">
-            <div class="container">
-                <h2>Elige un banco de alimentos</h2>
-                <form action="#">
-                    <input type="text" placeholder="Buscar por nombre o ubicación">
-                    <button type="submit">Buscar</button>
-                </form>
-            </div>
-        </section>
+
+        <section class="donacion">
+            <h2>Elige un banco de alimentos</h2>
+            <ul>
+              <li>
+                <input type="checkbox" name="donacion" id="banco_de_alimentos">
+                <label for="bc_alimn">Banc dels Aliments de Barcelona</label>
+              </li>
+              <li>
+                <input type="checkbox" name="donacion" id="banco_de_alimentos">
+                <label for="bc_alimn">Centre de distribució d'aliments de Girona</label>
+              </li>
+              <li>
+                <input type="checkbox" name="donacion" id="banco_de_alimentos">
+                <label for="bc_alimn">Centro Cristiano Vida Esplugues</label>
+              </li>
+              <li>
+                <input type="checkbox" name="donacion"id="banco_de_alimentos">
+                <label for="bc_alimn">Banco De Alimentos de la fundación del Convento de Santa Clara</label>
+              </li>
+              <li>
+                <input type="checkbox" name="donacion"id="banco_de_alimentos">
+                <label for="bc_alimn">Banco de Alimentos de La Rioja</label>
+              </li>
+              <li>
+                <input type="checkbox" name="donacion"id="banco_de_alimentos">
+                <label for="bc_alimn">Banco de Alimentos de Valencia</label>
+              </li>
+              <li>
+                <input type="checkbox" name="donacion"id="banco_de_alimentos">
+                <label for="bc_alimn">Banco de alimentos Barakaldo</label>
+              </li>
+              <li>
+                <input type="checkbox" name="donacion"id="banco_de_alimentos">
+                <label for="bc_alimn">Banco de Alimentos de Alicante</label>
+              </li>
+              <li>
+                <input type="checkbox" name="donacion"id="banco_de_alimentos">
+                <label for="bc_alimn">Banco de Alimentos de Huelva</label>
+              </li>
+              <li>
+                <input type="checkbox" name="donacion"id="banco_de_alimentos">
+                <label for="bc_alimn">Fundación Banco de Alimentos de Jaén</label>
+              </li>
+            
+              <li>
+                <input type="checkbox" name="donacion"id="banco_de_alimentos">
+                <label for="bc_alimn">Banco de Alimentos de Zaragoza</label>
+              </li>
+               
+              <li>
+                <input type="checkbox" name="donacion"id="banco_de_alimentos">
+                <label for="bc_alimn">Fundación de Alimentos de Almería</label>
+              </li>
+
+              <li>
+                <input type="checkbox" name="donacion"id="banco_de_alimentos">
+                <label for="bc_alimn">FBanc dels Aliments de les Comarques de Lleida</label>
+              </li>
+              
+              <li>
+                <input type="checkbox" name="donacion"id="banco_de_alimentos">
+                <label for="bc_alimn">Asociación Banco De Alimentos De Santiago</label>
+              </li>
+
+              <li>
+                <input type="checkbox" name="donacion"id="banco_de_alimentos">
+                <label for="bc_alimn">Cádiz Food Bank Association</label>
+              </li>
+
+              <li>
+                <input type="checkbox" name="donacion"id="banco_de_alimentos">
+                <label for="bc_alimn">Sevilla Food Bank</label>
+              </li>
+
+              <li>
+                <input type="checkbox" name="donacion"id="banco_de_alimentos">
+                <label for="bc_alimn">Granada Food Bank</label>
+              </li>
+
+              <li>
+                <input type="checkbox" name="donacion"id="banco_de_alimentos">
+                <label for="bc_alimn">Asociación Banco de Alimentos de Salamanca</label>
+              </li>
+
+              <li>
+                <input type="checkbox" name="donacion"id="banco_de_alimentos">
+                <label for="bc_alimn">Asociación Banco de Alimentos de Castellón</label>
+              </li>
+
+
+
+            
+              <!-- Agrega más opciones de productos aquí -->
+            </ul>
+            <button type="button">Aceptar</button>
+          </section>
+        <!-- Contenedor del mapa -->
+        <div class="map-container">
+            <iframe id="mapFrame" src="https://www.google.com/maps/d/embed?mid=1NZIzF0OD31wduLT8NsJLeWKpVHJljjo&ehbc=2E312F" width="640" height="480" onclick="capturarCoordenadas(event)"></iframe>
+        </div>
+
+        <div id="direccionSeleccionada"></div>
+
+        <!-- Botón para continuar -->
+        <a id="continuarBtn" href="{{ url_for('dia_hora_donacion')}}" onclick="continuarSeleccion()"><button type="submit">Continuar para eligir dia y hora </button></a>
     </main>
-    
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2995.0966006990993!2d2.145153!3d41.35025400000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a498a803e5dd41%3A0x7d6835b8e99a2284!2sBanc%20dels%20Aliments%20de%20Barcelona!5e0!3m2!1sca!2ses!4v1708958066988!5m2!1sca!2ses" width="600" height="800" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    
+
    
-    <a href="{{ url_for('dia_hora_donacion')}}"><button type="submit">Continuar para eligir dia y hora </button></a>
+    
 
     
 
@@ -165,5 +260,41 @@
             </ul>
         </div>
     </footer>
+    <script>
+        var bancoSeleccionado = "";
+
+        // Función para seleccionar un banco de alimentos
+        function seleccionarBanco(element) {
+            bancoSeleccionado = element.innerText;
+            // Mostrar mensaje de confirmación
+            alert("Has seleccionado: " + bancoSeleccionado + ". Haz clic en 'Continuar para elegir día y hora' para proceder.");
+        }
+
+        // Función para capturar las coordenadas cuando se hace clic en el mapa
+        function capturarCoordenadas(event) {
+            // Obtener las coordenadas
+            var latitud = event.clientY;
+            var longitud = event.clientX;
+
+            // Obtener la dirección correspondiente a las coordenadas
+            obtenerDireccion(latitud, longitud);
+        }
+
+        // Función para obtener la dirección correspondiente a las coordenadas
+        function obtenerDireccion(latitud, longitud) {
+            // Aquí puedes utilizar servicios de geolocalización para obtener la dirección
+            // En este ejemplo, mostraremos solo las coordenadas
+            document.getElementById('direccionSeleccionada').innerText = "Latitud: " + latitud + ", Longitud: " + longitud;
+        }
+
+        // Función para continuar con la selección de día y hora
+        function continuarSeleccion() {
+            if (bancoSeleccionado !== "") {
+                alert("Has confirmado la selección del banco de alimentos: " + bancoSeleccionado + ". Continuar con la selección de día y hora.");
+            } else {
+                alert("Por favor, selecciona un banco de alimentos primero.");
+            }
+        }
+    </script>
 </body>
 </html>
