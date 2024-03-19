@@ -1,6 +1,6 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template
 import os
-import database as db
+import database as db 
 
 template_dir = os.path.dirname(os.path.abspath(os.path.dirname(__file__)))
 template_dir = os.path.join(template_dir, 'app', 'templates')
@@ -9,7 +9,15 @@ app=Flask(__name__, template_folder = template_dir)
 
 @app.route('/')
 def home():
-
+    cursor = db.database.cursor()
+    cursor.execute("SELECT * FROM user")
+    myresult= cursor.fetchall()
+    #convertir los datos a diccionario
+    insertObject = []
+    columnNames = [column[0] for column in cursor.description]
+    for record in myresult:
+        insertObject.append(dict(zip(columnNames, record)))
+    cursor.close()
     return render_template('index.html')
 
 
