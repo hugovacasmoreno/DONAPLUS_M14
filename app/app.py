@@ -1,6 +1,6 @@
 from flask import Flask, render_template,request, redirect , url_for
 import os
-import app.database as db 
+import database as db 
 
 template_dir = os.path.dirname(os.path.abspath(os.path.dirname(__file__)))
 template_dir = os.path.join(template_dir, 'app', 'templates')

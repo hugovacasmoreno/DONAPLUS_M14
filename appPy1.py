@@ -2,7 +2,7 @@
 # pip install flask
 from flask import Flask, render_template, request, redirect, url_for
 import os
-import database as db
+import app.database as db
 # path absoluto (donde estaría nuestra aplicación)
 template_dir = os.path.dirname(os.path.abspath(os.path.dirname(__file__)))
 # unir src y template a la carpeta de proyecto
