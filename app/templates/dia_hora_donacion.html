@@ -5,189 +5,127 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DonaPLus</title>
   <style>
-      /* Estilo general */
-      body {
-        font-family: sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: rgb(155, 223, 210);
-      }
-      
-      .container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-       
-      }
+    /* Estilos generales */
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: rgb(155, 223, 210);
+    }
 
-      .logo-container img {
-        width: 100px; /* Ajusta el ancho según sea necesario */
-      }
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      margin-top: 20px;
+    }
 
-      /* Estilos para la barra de navegación */
-      .nav {
-        display: flex;
-        align-items: center;
-      }
+    .nav {
+      display: flex;
+      align-items: center;
+    }
 
-      .nav a {
-        margin-right: 20px;
-        text-decoration: none;
-        color: #333;
-        transition: color 0.3s;
-      }
+    .nav a {
+      margin-right: 20px;
+      text-decoration: none;
+      color: #333;
+      transition: color 0.3s;
+    }
 
-      .nav a:hover {
-        color: #555;
-      }
+    .nav a:hover {
+      color: #555;
+    }
 
+    main {
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
-      /* Sección principal */
-      main {
-       
-        padding: 20px;
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        max-width: 800px;
-      }
+    section {
+      border: 20px solid #ddd;
+      padding: 40px;
+      width: 45%;
+      margin-top: 20px;
+    }
 
-      /* Sección de servicio */
-      section.servicio {
-        border: 20px solid #ddd;
-        padding: 40px;
-        width: 45%;
-        margin-right: 20px;
-      }
+    h2 {
+      margin-top: 0;
+    }
 
-      section.servicio h2 {
-        margin-top: 0;
-      }
+    .servicio {
+      margin-right: 80px;
+    }
 
-      section.servicio form {
-        margin-top: 20px;
-      }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
 
-      section.servicio label {
-        display: block;
-        margin-bottom: 10px;
-      }
+    li {
+      margin-bottom: 10px;
+    }
 
-      section.servicio select,
-      section.servicio input {
-        border: 1px solid #ccc;
-        padding: 5px;
-        width: 100%;
-      }
+    input[type="checkbox"] {
+      margin-right: 10px;
+    }
 
-      section.servicio button {
-        background-color: #428bca;
-        color: #fff;
-        margin-top: 10px;
-        padding: 5px 10px;
-        width: 100%;
-      }
+    .buttons {
+      margin-top: 20px;
+      text-align: center;
+    }
 
-      section.servicio button:hover {
-        background-color: #ddd;
-        color: #428bca;
-      }
+    .buttons button {
+      background-color: #428bca;
+      color: #fff;
+      padding: 5px 20px; /* Ajusta el padding horizontal según sea necesario */
+      border: none;
+      cursor: pointer;
+    }
 
-      /* Sección de donación */
-      section.donacion {
-        border: 20px solid #ddd;
-        padding: 40px;
-        width: 45%;
-        margin-left: 80px;
-      }
+    /* Espacio entre secciones */
+    main > section + section {
+      margin-top: 20px;
+    }
 
-      section.donacion h2 {
-        margin-top: 20px;
-      }
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      margin-top: 200px;
+    }
 
-      section.donacion ul {
-        list-style: none;
-        padding: 0;
-      }
+    footer p {
+      margin-bottom: 10px;
+    }
 
-      section.donacion li {
-        margin-bottom: 10px;
-      }
+    footer ul {
+      list-style: none;
+      padding: 0;
+    }
 
-      section.donacion input {
-        margin-left: 50px;
-      }
-      
+    footer ul li {
+      display: inline-block;
+      margin-right: 10px;
+    }
 
-      section.donacion button {
-        background-color: #428bca;
-        color: #fff;
-        margin-top: 10px;
-        padding: 5px 10px;
-        width: 100%;
-      }
-
-      section.donacion button:hover {
-        background-color: #ddd;
-        color: #428bca;
-      }
-
-      /* Pie de página */
-     
-      .buttons {
-        margin-top: 20px;
-        text-align: center;
-      }
-
-      .buttons button {
-        background-color: #428bca;
-        color: #fff;
-        margin-right: 10px;
-        padding: 5px 10px;
-        border: none;
-        cursor: pointer;
-      }
-
-      .buttons button:hover {
-        background-color: #ddd;
-        color: #428bca;
-      }
-
-          footer {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-            margin-top: 280px; 
-        }
-        
-        footer p {
-            margin-bottom: 10px;
-        }
-        
-        footer ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        footer ul li {
-            display: inline-block;
-            margin-right: 10px;
-        }
-        
-        footer ul li a {
-            color: #fff;
-            text-decoration: none;
-        }
+    footer ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="nav">
-      <a href="{{ url_for('index')}}">Inicio </a>
+      <a href="{{ url_for('index')}}">Inicio</a>
       <a href="{{ url_for('pg_dona2')}}">Iniciar Sesión</a>
-      <a href="{{ url_for('mapa')}}">Servicio </a>
+      <a href="{{ url_for('mapa')}}">Servicio</a>
       <a href="{{ url_for('contacto')}}">Contacto</a>
     </div>
     <div class="logo-container">
@@ -196,7 +134,6 @@
   </div>
 
   <main>
-
     <section class="servicio">
       <h2>Elige día y hora</h2>
       <form action="#">
@@ -212,7 +149,7 @@
         </select>
         <label for="hora">Hora:</label>
         <input type="time" name="hora" id="hora">
-        <button type="submit">Aceptar</button>
+        
       </form>
     </section>
 
@@ -235,15 +172,116 @@
           <input type="checkbox" name="donacion" id="caldo">
           <label for="caldo">Caldo</label>
         </li>
+
+        <li>
+          <input type="checkbox" name="donacion" id="patatas">
+          <label for="patatas">patatas</label>
+        </li>
+
+        <li>
+          <input type="checkbox" name="donacion" id="Frutas">
+          <label for="Frutas">Frutas</label>
+        </li>
+
+        <li>
+          <input type="checkbox" name="donacion" id="vegetales ">
+          <label for="vegetales ">vegetales </label>
+        </li>
+
+        <li>
+          <input type="checkbox" name="donacion" id="aceites">
+          <label for="aceites ">aceites</label>
+        </li>
+
+        <li>
+          <input type="checkbox" name="donacion" id="yogures ">
+          <label for="yogures">yogures</label>
+        </li>
+
+        <li>
+          <input type="checkbox" name="donacion" id="frutos secos ">
+          <label for="frutos secos">frutos secos</label>
+        </li>
+
+        <li>
+          <input type="checkbox" name="donacion" id="conservas ">
+          <label for="conservas">conservas</label>
+        </li>
+
+        <li>
+          <input type="checkbox" name="donacion" id="embutidos ">
+          <label for="embutidos">embutidos</label>
+        </li>
+
+        <li>
+          <input type="checkbox" name="donacion" id="quesos curados ">
+          <label for="quesos curados">quesos curados</label>
+        </li>
+
+        <li>
+          <input type="checkbox" name="donacion" id="galletas ">
+          <label for="galletas">galletas</label>
+        </li>
+
+        <li>
+          <input type="checkbox" name="donacion" id="legumbres secas ">
+          <label for="legumbres secas">legumbres secas</label>
+        </li>
+
+        <li>
+          <input type="checkbox" name="donacion" id="harina ">
+          <label for="harina">harina</label>
+        </li>
+
+        <li>
+          <input type="checkbox" name="donacion" id="cereales ">
+          <label for="cereales"> cereales</label>
+        </li>
+
+        <li>
+          <input type="checkbox" name="donacion" id="azúcar">
+          <label for="azúcar"> azúcar</label>
+        </li>
+
+        <li>
+          <input type="checkbox" name="donacion" id=" café">
+          <label for="café"> café</label>
+        </li>
+
+        <li>
+          <input type="checkbox" name="donacion" id="chocolate">
+          <label for="chocolate"> chocolate </label>
+        </li>
+
+        <li>
+          <input type="checkbox" name="donacion" id=" atún">
+          <label for="atún"> atún</label>
+        </li>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
         <!-- Agrega más opciones de productos aquí -->
       </ul>
-      <button type="button">Aceptar</button>
+      
     </section>
-    
   </main>
-  <div class="buttons">
-    <button type="button">Confirmar</button>
-  </div>
+
+  <form action="/confirmar" method="post"> <!-- Reemplaza "/confirmar" con la ruta de tu endpoint de confirmación -->
+    <div class="buttons">
+      <button type="submit">Confirmar</button>
+    </div>
+
   <footer>
     <div class="container">
         <p>&copy; 2024 DonaPLus</p>
@@ -252,6 +290,9 @@
             <li><a href="#">Política de privacidad</a></li>
         </ul>
     </div>
-</footer>
+  </footer>
+
+  
+ 
 </body>
 </html>
