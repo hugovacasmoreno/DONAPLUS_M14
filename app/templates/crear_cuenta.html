@@ -26,21 +26,43 @@
         }
 
         /* Estilos para la barra de navegación */
+        /* Estilos para la barra de navegación */
         .nav {
+            color: #ffffff;
             display: flex;
+            justify-content: space-around;
+            padding: 15px ;
             align-items: center;
+            text-align: center;
+
         }
 
         .nav a {
-            margin-right: 20px;
+            
             text-decoration: none;
             color: #333;
             transition: color 0.3s;
+            text-align: center;
+            align-items: center;
+
         }
 
-        .nav a:hover {
-            color: #555;
+        button {
+            background-color: rgb(237, 240, 239);
+            border: none;
+            border-radius: 30px;
+            color: #fff;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            align-items: center;
         }
+
+        button:hover {
+            background-color: rgb(232, 235, 234);
+        }
+
 
         /* Estilos para el formulario */
         .form-container {
@@ -152,10 +174,10 @@
 
 <div class="container">
     <div class="nav">
-        <a href="{{ url_for('index2')}}">Inicio </a>
-        <a href="{{ url_for('pg_dona2')}}">Iniciar Sesión</a>
-        <a href="{{ url_for('mapa')}}">Servicio </a>
-        <a href="{{ url_for('contacto')}}">Contacto</a>
+        <button><a href="{{ url_for('index2')}}">Inicio</a></button>
+        <button><a href="{{ url_for('pg_dona2')}}">Iniciar Sesión</a></button>
+        <button><a href="{{ url_for('mapa')}}">Servicio</a></button>
+        <button><a href="{{ url_for('contacto')}}">Contacto</a></button>
     </div>
     <div class="logo-container">
         <img src="{{ url_for('static', filename='logodona.PNG') }}" alt="Logo de DonaPlus">
