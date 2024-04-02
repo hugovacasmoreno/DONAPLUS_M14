@@ -6,6 +6,8 @@ template_dir = os.path.join(template_dir, 'app', 'templates')
 
 app=Flask(__name__, template_folder = template_dir) 
 
+
+
 @app.route('/')
 def index2():
     #return "Hola Mundo"

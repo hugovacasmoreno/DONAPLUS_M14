@@ -6,7 +6,7 @@ import database as db
 # path absoluto (donde estaría nuestra aplicación)
 template_dir = os.path.dirname(os.path.abspath(os.path.dirname(__file__)))
 # unir src y template a la carpeta de proyecto
-template_dir = os.path.join(template_dir, 'src', 'templates')
+template_dir = os.path.join(template_dir, 'app', 'templates')
 # name para poder lanzar la aplicación, atraves de un puerto
 # indica donde esta el directorio html
 app = Flask(__name__, template_folder = template_dir)
@@ -65,4 +65,4 @@ def edit(id):
     return redirect(url_for('home')) # Redi
 
 if __name__ == '__main__':
-    app.run(debug=True, port=4000)
+    app.run(debug=True, port=5001)
