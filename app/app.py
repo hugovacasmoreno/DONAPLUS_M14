@@ -11,6 +11,8 @@ app=Flask(__name__)
 template_dir = os.path.dirname(os.path.abspath(os.path.dirname(__file__)))
 >>>>>>> Stashed changes
 
+
+
 @app.route('/')
 def index2():
     #return "Hola Mundo"
