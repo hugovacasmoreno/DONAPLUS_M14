@@ -7,4 +7,4 @@ database = mysql.connector.connect(
     database='pythonbd'
 )
 
-#hugo
+#sergi
