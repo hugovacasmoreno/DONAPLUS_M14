@@ -2,10 +2,15 @@ from flask import Flask, render_template,request, redirect , url_for
 import os
 import database as db
 
+<<<<<<< Updated upstream
 template_dir = os.path.dirname(os.path.abspath(os.path.dirname(__file__)))
 template_dir = os.path.join(template_dir, 'app', 'templates')
 
 app=Flask(__name__, template_folder = template_dir) 
+=======
+app=Flask(__name__)
+template_dir = os.path.dirname(os.path.abspath(os.path.dirname(__file__)))
+>>>>>>> Stashed changes
 
 
 
