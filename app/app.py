@@ -1,5 +1,6 @@
 from flask import Flask, render_template,request, redirect , url_for
 import os
+import database as db
 
 template_dir = os.path.dirname(os.path.abspath(os.path.dirname(__file__)))
 template_dir = os.path.join(template_dir, 'app', 'templates')
@@ -55,7 +56,31 @@ def confirmar():
     # Por ahora, simplemente devolvemos una respuesta de confirmación al cliente
     return '¡Confirmación exitosa! Gracias por tu donación.'
 
+db_config = {
+    'user': 'tu_usuario',
+    'password': 'tu_contraseña',
+    'host': 'localhost',
+    'database': 'pythonbd',
+    'raise_on_warnings': True
+}
 
+@app.route('/lista_bancos_alimentos')
+def listar_bancos_de_alimentos():
+    # Conexión a la base de datos
+    connection = mysql.connector.connect(**db_config)
+    cursor = connection.cursor()
+
+    # Consulta para recuperar los bancos de alimentos
+    query = "SELECT * FROM `banco_alimentos`"
+    cursor.execute(query)
+    bancos = cursor.fetchall()
+
+    # Cerrar la conexión a la base de datos
+    cursor.close()
+    connection.close()
+
+    # Renderizar la plantilla HTML con los bancos de alimentos
+    return render_template('lista_bancos.html', bancos=bancos)
 
 if __name__ == '__main__':
     #lo que hay () sireve para poder editar sin reiniciar el server, modo depuracion

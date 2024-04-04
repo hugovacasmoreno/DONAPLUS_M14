@@ -237,7 +237,7 @@
 
               <li>
                 <input type="checkbox" name="donacion"id="banco_de_alimentos">
-                <label for="bc_alimn">FBanc dels Aliments de les Comarques de Lleida</label>
+                <label for="bc_alimn">Banc dels Aliments de les Comarques de Lleida</label>
               </li>
               
               <li>
@@ -252,12 +252,12 @@
 
               <li>
                 <input type="checkbox" name="donacion"id="banco_de_alimentos">
-                <label for="bc_alimn">Sevilla Food Bank</label>
+                <label for="bc_alimn">Fundación Banco de Alimentos de Sevilla</label>
               </li>
 
               <li>
                 <input type="checkbox" name="donacion"id="banco_de_alimentos">
-                <label for="bc_alimn">Granada Food Bank</label>
+                <label for="bc_alimn">Fundación Banco de Alimentos de Granada</label>
               </li>
 
               <li>
@@ -382,9 +382,14 @@
                 </label>
               </li>
 
-              
+              <ul>
+                {% for banco in bancos %}
+                <li>{{ banco[0] }} - {{ banco[1] }}, {{ banco[2] }}</li>
+                {% endfor %}
+  
 
-
+              </ul>
+             
 
 
 
