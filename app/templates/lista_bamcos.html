@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Bancos de Alimentos en España</title>
+</head>
+<body>
+    <h1>Lista de Bancos de Alimentos en España</h1>
+    <ul>
+        {% for banco in bancos %}
+            <li>{{ banco[0] }} - {{ banco[1] }}, {{ banco[2] }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

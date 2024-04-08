@@ -1,16 +1,14 @@
 from flask import Flask, render_template,request, redirect , url_for
 import os
 import database as db
+import mysql.connector
 
-<<<<<<< Updated upstream
+
 template_dir = os.path.dirname(os.path.abspath(os.path.dirname(__file__)))
 template_dir = os.path.join(template_dir, 'app', 'templates')
 
 app=Flask(__name__, template_folder = template_dir) 
-=======
-app=Flask(__name__)
-template_dir = os.path.dirname(os.path.abspath(os.path.dirname(__file__)))
->>>>>>> Stashed changes
+
 
 
 
@@ -51,6 +49,11 @@ def dia_hora_donacion():
     
     return render_template('dia_hora_donacion.html')
 
+@app.route('/lista_bamcos')
+def lista_bamcos():
+    #return la pagina de inciar session
+    
+    return render_template('lista_bamcos.html')
 
 @app.route('/confirmar', methods=['POST'])
 def confirmar():
@@ -62,8 +65,8 @@ def confirmar():
     return '¡Confirmación exitosa! Gracias por tu donación.'
 
 db_config = {
-    'user': 'tu_usuario',
-    'password': 'tu_contraseña',
+    'user': 'Admin',
+    'password': '',
     'host': 'localhost',
     'database': 'pythonbd',
     'raise_on_warnings': True
@@ -71,12 +74,13 @@ db_config = {
 
 @app.route('/lista_bancos_alimentos')
 def listar_bancos_de_alimentos():
+   
     # Conexión a la base de datos
     connection = mysql.connector.connect(**db_config)
     cursor = connection.cursor()
 
     # Consulta para recuperar los bancos de alimentos
-    query = "SELECT * FROM `banco_alimentos`"
+    query = "SELECT * FROM banco_alimentos "
     cursor.execute(query)
     bancos = cursor.fetchall()
 
@@ -85,7 +89,9 @@ def listar_bancos_de_alimentos():
     connection.close()
 
     # Renderizar la plantilla HTML con los bancos de alimentos
-    return render_template('lista_bancos.html', bancos=bancos)
+    return render_template('lista_bamcos.html', bancos=bancos)
+
+   
 
 if __name__ == '__main__':
     #lo que hay () sireve para poder editar sin reiniciar el server, modo depuracion
