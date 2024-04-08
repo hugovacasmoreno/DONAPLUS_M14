@@ -1,66 +1,21 @@
 from flask import Flask, render_template,request, redirect , url_for
 import os
-import app.database as db 
+import database as db
+import mysql.connector
+
 
 template_dir = os.path.dirname(os.path.abspath(os.path.dirname(__file__)))
 template_dir = os.path.join(template_dir, 'app', 'templates')
 
 app=Flask(__name__, template_folder = template_dir) 
 
-@app.route('/')
-def home():
-    cursor = db.database.cursor()
-    cursor.execute("SELECT * FROM users")
-    myresult= cursor.fetchall()
-    #convertir los datos a diccionario
-    insertObject = []
-    columnNames = [column[0] for column in cursor.description]
-    for record in myresult:
-        insertObject.append(dict(zip(columnNames, record)))
-    cursor.close()
-    return render_template('index.html', data=insertObject)
-#Ruta para guardar usuarios a la base de datos
-@app.route('/user', methods=['POST'])
-def addUser():
-    username = request.form['username']
-    name = request.form['name']
-    password = request.form['password']
 
-    if username and name and password:
-        cursor = db.database.cursor()
-        sql = "INSERT INTO users (username, name, password) VALUES (%s, %s, %s)"
-        data=(username, name, password)
-        cursor.execute(sql, data)
-        db.database.commit()
-    return redirect(url_for('home'))
-#consulta eliminar un user
-@app.route('/delete/<string:id>')
-def delete(id):
-      cursor = db.database.cursor()
-      sql = "DELETE FROM users WHERE id=%s)"
-      data=(id,)
-      cursor.execute(sql, data)
-      db.database.commit()
-      return redirect(url_for('home'))
 
-@app.route('/edit/<string:id>',methods=['POST'])
-def edit(id):
-      username = request.form['username']
-      name = request.form['name']
-      password = request.form['password']
-#para modificar los datos
-      if username and name and password:
-        cursor = db.database.cursor()
-        sql = "UPDATE  users SET username = %s, name= %s, password=%s WHERE id =%s"
-        data=(username, name, password)
-        cursor.execute(sql, data)
-        db.database.commit()
-      return redirect(url_for('home'))
 
 @app.route('/')
-def index():
+def index2():
     #return "Hola Mundo"
-    return render_template('index.html')
+    return render_template('index2.html')
 
 
 
@@ -94,6 +49,11 @@ def dia_hora_donacion():
     
     return render_template('dia_hora_donacion.html')
 
+@app.route('/lista_bamcos')
+def lista_bamcos():
+    #return la pagina de inciar session
+    
+    return render_template('lista_bamcos.html')
 
 @app.route('/confirmar', methods=['POST'])
 def confirmar():
@@ -104,7 +64,34 @@ def confirmar():
     # Por ahora, simplemente devolvemos una respuesta de confirmación al cliente
     return '¡Confirmación exitosa! Gracias por tu donación.'
 
+db_config = {
+    'user': 'Admin',
+    'password': '',
+    'host': 'localhost',
+    'database': 'pythonbd',
+    'raise_on_warnings': True
+}
 
+@app.route('/lista_bancos_alimentos')
+def listar_bancos_de_alimentos():
+   
+    # Conexión a la base de datos
+    connection = mysql.connector.connect(**db_config)
+    cursor = connection.cursor()
+
+    # Consulta para recuperar los bancos de alimentos
+    query = "SELECT * FROM banco_alimentos "
+    cursor.execute(query)
+    bancos = cursor.fetchall()
+
+    # Cerrar la conexión a la base de datos
+    cursor.close()
+    connection.close()
+
+    # Renderizar la plantilla HTML con los bancos de alimentos
+    return render_template('lista_bamcos.html', bancos=bancos)
+
+   
 
 if __name__ == '__main__':
     #lo que hay () sireve para poder editar sin reiniciar el server, modo depuracion
