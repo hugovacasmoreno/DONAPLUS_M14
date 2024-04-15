@@ -11,16 +11,10 @@ app=Flask(__name__, template_folder = template_dir)
 @app.route('/')
 def home():
     #return "Hola Mundo"
-    return render_template('index.html')
+    return render_template('lista_bamcos.html')
 
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5001)
+    app.run(debug=True, port=5002)
 
-if __name__ == '__main__':
-    #lo que hay () sireve para poder editar sin reiniciar el server, modo depuracion
-    
-    app.run(debug=True, port=5001)
-
-#puer

@@ -1,7 +1,7 @@
 from flask import Flask, render_template,request, redirect , url_for
 import os
 import database as db
-import mysql.connector
+
 
 
 template_dir = os.path.dirname(os.path.abspath(os.path.dirname(__file__)))
@@ -64,34 +64,59 @@ def confirmar():
     # Por ahora, simplemente devolvemos una respuesta de confirmación al cliente
     return '¡Confirmación exitosa! Gracias por tu donación.'
 
-db_config = {
-    'user': 'Admin',
-    'password': '',
-    'host': 'localhost',
-    'database': 'pythonbd',
-    'raise_on_warnings': True
-}
+# Rutas de la aplicación
+@app.route('/') # ruta principal, accedemos aplicación
+def home(): # Viculamos función
+    cursor = db.database.cursor() # LLamamos a la base de datos mediante la función cursor
+    cursor.execute("SELECT * FROM users")
+    myresult = cursor.fetchall() # Obtenemos los datos de la búsqueda
+    # Convertir los datos a diccionario para obtener una clave de cada uno de los datos
+    insertObject = []
+    columnNames = [column[0] for column in cursor.description]
+    for record in myresult: # En record accedemosa a cada uno de los registros de la consulta myresult 
+        insertObject.append(dict(zip(columnNames, record))) # Mete los datos en formato diccionario de forma bidimensional (zip)
+                                                            # Emparejando cada nombre de columna con su dato.        
+    cursor.close() #Cerramos cursos
+    return render_template('pg_dona2.html', data=insertObject) # Mandamos los datos al html por medio de data
+    # Ruta para guardar usuarios en la bdd
+@app.route('/user', methods=['POST'])  # /user se utilizará en el action del form
+def addUser():  #request se importará como función externa para los datos de cabecera
+    username = request.form['username']  # conseguimos el imput del dato del formulario
+    email = request.form['email']
+    password = request.form['password']
 
-@app.route('/lista_bancos_alimentos')
-def listar_bancos_de_alimentos():
-   
-    # Conexión a la base de datos
-    connection = mysql.connector.connect(**db_config)
-    cursor = connection.cursor()
+    if username and email and password:
+        cursor = db.database.cursor()
+        sql = "INSERT INTO users (username, email, password) VALUES (%s, %s, %s)"
+        data = (username, email, password) # Grabamos los datos en la consulta 
+        cursor.execute(sql, data)
+        db.database.commit() # Grabamos en base de datos
+    return redirect(url_for('home')) # Actualizamos la vista redireccionando a 
+                                     # la función home 
+#  Ruta para borrar registros de la bdd
+@app.route('/delete/<string:id>') # Parámetro que urilizaremo como clave de registro
+def delete(id):  # Pasamos parámetro
+    cursor = db.database.cursor()
+    sql = "DELETE FROM users WHERE id=%s"
+    data = (id,)
+    cursor.execute(sql, data)
+    db.database.commit()
+    return redirect(url_for('home'))
+# Ruta para editar registros de la bdd
+@app.route('/edit/<string:id>', methods=['POST'])
+def edit(id):
+    username = request.form['username']  # conseguimos el imput del dato del formulario
+    email = request.form['email']
+    password = request.form['password']
 
-    # Consulta para recuperar los bancos de alimentos
-    query = "SELECT * FROM banco_alimentos "
-    cursor.execute(query)
-    bancos = cursor.fetchall()
+    if username and email and password:
+        cursor = db.database.cursor()
+        sql = "UPDATE users SET username = %s, email = %s, password = %s WHERE id = %s"
+        data = (username,email, password, id)
+        cursor.execute(sql, data)
+        db.database.commit()
+    return redirect(url_for('home')) # Redi
 
-    # Cerrar la conexión a la base de datos
-    cursor.close()
-    connection.close()
-
-    # Renderizar la plantilla HTML con los bancos de alimentos
-    return render_template('lista_bamcos.html', bancos=bancos)
-
-   
 
 if __name__ == '__main__':
     #lo que hay () sireve para poder editar sin reiniciar el server, modo depuracion
